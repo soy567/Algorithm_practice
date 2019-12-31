@@ -5,11 +5,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-char* solution(int a, int b) { // 2016년 기준
+char* solution(int a, int b) { // 2016년 기준 
     // 리턴할 값은 메모리를 동적 할당해주세요.
     int i;
     int month[12] = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-
+    
     if (a == 2 && b > 29) //날짜 범위 검사
         return 0;
     else if (a == 4, 6, 9, 11 && b > 30)
@@ -93,7 +93,7 @@ int solution(int n) {
     }
     return answer;
 }
-*/
+
 //문제 - 자연수 뒤집어 배열로 만들기
 #include <stdio.h>
 #include <stdbool.h>
@@ -113,4 +113,115 @@ int* main(long long n) {
     printf("%d", j);
     int* answer = (int*)malloc(sizeof(int));
     return answer;
+}
+
+//문제 - 정수 제곱근 판별
+#include <stdio.h>
+#include <stdbool.h>
+#include <math.h>
+#include <stdlib.h>
+
+long long solution(long long n) {
+    if (n < 1 || n > 50000000000000)
+        return 0;
+    long long answer = 0;
+    long long a = sqrt(n);
+    if (n == a * a)
+        answer = (a + 1) * (a + 1);
+    else
+        answer = -1;
+    return answer;
+}
+
+//문제 - 짝수와 홀수
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+char* solution(int num) {
+    // 리턴할 값은 메모리를 동적 할당해주세요
+    char* answer = NULL;
+    if (num % 2 == 0) {
+        answer = (char*)malloc(sizeof(char) * 5);
+        strcpy(answer, "Even");
+    }
+    else {
+        answer = (char*)malloc(sizeof(char) * 4);
+        strcpy(answer, "Odd");
+    }
+    return answer;
+}
+
+//문제 - 콜라스 추측
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+int solution(long long num) {
+    if (num < 1 || num >= 8000000)
+        return 0;
+    long long answer = 0;
+
+    while (num != 1) {
+        answer++;
+        if ((num % 2) == 0)
+            num = num / 2;
+        else
+            num = ((num * 3) + 1);
+        //printf("num 값: %d i값: %d \n", num, answer);
+        if (answer >= 500)
+            break;
+    }
+    if (num != 1 && answer >= 500)
+        answer = -1;
+    return answer;
+}
+
+//문제 - 평균 구하기
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+// arr_len은 배열 arr의 길이입니다.
+double solution(int arr[], size_t arr_len) {
+    if (arr_len < 1 || arr_len > 100)
+        return 0;
+    double answer = 0;
+    for (int i = 0; i < arr_len; i++) {
+        if (arr[i] > 10000 || arr[i] < -10000)
+            return 0;
+        answer += arr[i];
+    }
+    answer = answer / arr_len;
+    return answer;
+}
+
+//문제 - 하샤드 수
+#include <iostream>
+using namespace std;
+
+int main() {
+    float f, c;
+
+    cout << "화씨 온도를 입력하세요: ";
+    cin >> f;
+    c = 5 / 9 * (f - 32);
+    cout << f << "의 섭씨 온도: " << c << endl;
+    return 0;
+}
+*/
+
+//문제 - 직사각형 별 찍기
+#include <stdio.h>
+
+int main(void) {
+    int a;
+    int b;
+    scanf("%d %d", &a, &b);
+    for(int i = 0; i < b; i++) {
+        for(int j = 0; j < a; j++)
+            printf("*");
+        printf("\n");
+        }
+    return 0;
 }
