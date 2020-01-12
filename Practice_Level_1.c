@@ -1,15 +1,14 @@
 //프로그래머스 코딩테스트 연습 - 연습문제
-/*
 //문제 - 2016년
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-char* solution(int a, int b) { // 2016년 기준 
+char* solution(int a, int b) { // 2016년 기준
     // 리턴할 값은 메모리를 동적 할당해주세요.
     int i;
     int month[12] = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-    
+
     if (a == 2 && b > 29) //날짜 범위 검사
         return 0;
     else if (a == 4, 6, 9, 11 && b > 30)
@@ -62,18 +61,23 @@ long long solution(int a, int b) {
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <string.h>
 
 char* solution(int n) {
     // 리턴할 값은 메모리를 동적 할당해주세요.
     int i;
     if(n > 10000)
         return 0;
-    char* answer = (char*)malloc((sizeof(char)*2*n) + 1);
+    char* answer = (char*)malloc(sizeof(char)*(3*n)); //한글 1개당 3바이트 할당
+    if(n == 0)
+        return 0;
     for(i = 0; i < n; i++) {
-        if(i % 2 == 0)
+        if(i % 2 == 0) {
             strcat(answer, "수");
-        else if(i % 2 == 1)
+		}
+        else {
             strcat(answer, "박");
+		}
     }
     return answer;
 }
@@ -209,7 +213,6 @@ int main() {
     cout << f << "의 섭씨 온도: " << c << endl;
     return 0;
 }
-*/
 
 //문제 - 직사각형 별 찍기
 #include <stdio.h>
